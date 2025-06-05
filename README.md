@@ -15,7 +15,7 @@ A simple agentic application built with Google's Gemini LLM that demonstrates fu
 ## Quick Start
 
 ### Prerequisites
-- Python 3.8+
+- Python 3.9+
 - UV package manager ([install here](https://docs.astral.sh/uv/getting-started/installation/))
 - Google AI API key (optional - see setup below)
 
@@ -230,7 +230,7 @@ The app will automatically detect no API key and run in educational mock mode.
 
 ## Technology Stack
 
-- **Language**: Python 3.8+
+- **Language**: Python 3.9+
 - **LLM**: Google Gemini 1.5 Flash
 - **Package Manager**: UV
 - **Web Framework**: Streamlit
