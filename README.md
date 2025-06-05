@@ -9,6 +9,8 @@ A simple agentic application built with Google's Gemini LLM that demonstrates fu
 - 🎭 **Mock Mode**: Works without API key for learning/testing
 - 🏗️ **Clean Architecture**: Each class in its own file
 - ⚡ **Fast Setup**: Uses UV package manager
+- 🌐 **Dual Interface**: Available as both CLI and modern web app
+- 🎨 **Streamlit Web UI**: Beautiful, interactive chat interface with examples
 
 ## Quick Start
 
@@ -60,13 +62,25 @@ echo "GOOGLE_API_KEY=your-api-key-here" > .env
 
 ### Usage
 
+Choose your preferred interface:
+
+#### Option 1: Command Line Interface (CLI)
 ```bash
-# Run the agent
+# Run the command-line version
 uv run python main.py
 ```
 
+#### Option 2: Web Interface (Streamlit)
+```bash
+# Run the web interface
+uv run streamlit run streamlit_app.py
+```
+
+Then open your browser to the URL shown (usually http://localhost:8501)
+
 ## Example Interactions
 
+### Command Line Interface
 ```
 You: What's the weather in London?
 🤖 Agent: The weather in London is currently rainy with a temperature of 8°C.
@@ -78,6 +92,21 @@ You: Is it humid in New York?
 🤖 Agent: The humidity in New York is 45%.
 ```
 
+### Web Interface Features
+The Streamlit web app provides:
+- 💬 **Interactive Chat Interface**: Clean, modern chat UI
+- 🎯 **One-Click Examples**: Pre-built example questions in the sidebar
+- 🏙️ **City Reference**: Quick view of available cities and their data
+- 🔧 **Debug Mode**: In mock mode, shows detailed function calling process
+- 📱 **Responsive Design**: Works great on desktop and mobile
+- ⚡ **Real-Time**: Instant responses with loading indicators
+
+**Quick Start for Web Interface:**
+```bash
+# Install and run in one command
+uv sync && uv run streamlit run streamlit_app.py
+```
+
 ## Architecture
 
 ```
@@ -85,7 +114,8 @@ simple-weather-agent/
 ├── config.py          # Configuration and environment management
 ├── weather_tool.py     # Weather data tool with function schema
 ├── weather_agent.py    # LLM integration and function calling
-├── main.py            # Application interface and chat loop
+├── main.py            # Command-line interface and chat loop
+├── streamlit_app.py    # Streamlit web interface 
 └── pyproject.toml     # Dependencies and project config
 ```
 
@@ -94,7 +124,8 @@ simple-weather-agent/
 - **`Config`**: Manages environment variables and API key validation
 - **`WeatherTool`**: Provides hardcoded weather data with LLM function schema
 - **`WeatherAgent`**: Handles LLM interactions and function calling logic
-- **`WeatherApp`**: Manages user interface and application flow
+- **`WeatherApp`**: Manages command-line interface and application flow
+- **`StreamlitWeatherApp`**: Manages web interface with chat functionality
 
 ## Mock Mode
 
@@ -202,9 +233,11 @@ The app will automatically detect no API key and run in educational mock mode.
 - **Language**: Python 3.8+
 - **LLM**: Google Gemini 1.5 Flash
 - **Package Manager**: UV
+- **Web Framework**: Streamlit
 - **Libraries**: 
   - `google-generativeai` - Gemini API client
   - `python-dotenv` - Environment variable management
+  - `streamlit` - Modern web interface framework
 
 ## Project Structure Benefits
 
@@ -239,7 +272,8 @@ Potential improvements for learning:
 - 🗺️ Better location parsing with NLP
 - 📊 Weather history and forecasting
 - 🔧 Additional tools (news, calendar, etc.)
-- 🎨 Web interface with Streamlit/FastAPI
+- 🤖 Claude API integration alongside Gemini
+- 🎨 Enhanced UI/UX with charts and visualizations
 
 ---
 
